@@ -1,24 +1,17 @@
-# README
+# Overtime App
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Model
 
-Things you may want to cover:
+Post
+User
+AdminUser
 
-* Ruby version
+Features
 
-* System dependencies
+Approval Workflow
+SMS Sending
+Administrate Admin Dashboard
+Email summary to managers for approval
 
-* Configuration
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Bootstrap 
