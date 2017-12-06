@@ -4,8 +4,8 @@ class AdminUserDashboard < Administrate::BaseDashboard
   ATTRIBUTE_TYPES = {
     posts: Field::HasMany,
     id: Field::Number,
-    email: Field::String,
-    password: Field::String,
+    email: Field::String.with_options(searchable: true),
+    encrypted_password: Field::String,
     sign_in_count: Field::Number,
     current_sign_in_at: Field::DateTime,
     last_sign_in_at: Field::DateTime,
@@ -13,8 +13,6 @@ class AdminUserDashboard < Administrate::BaseDashboard
     last_sign_in_ip: Field::String.with_options(searchable: false),
     first_name: Field::String,
     last_name: Field::String,
-    avatar: Field::Text,
-    username: Field::String,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
     type: Field::String,
@@ -44,7 +42,7 @@ class AdminUserDashboard < Administrate::BaseDashboard
 
   FORM_ATTRIBUTES = [
     :email,
-    :password,
+    :encrypted_password,
     :first_name,
     :last_name,
     :type,
