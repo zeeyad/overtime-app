@@ -1,3 +1,4 @@
+<% if current_user %>
 <nav class="custom-nav navbar navbar-toggleable-md navbar-light bg-faded navbar-expand-md">
   <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -23,11 +24,13 @@
 	          Account
 	        </a>
 	        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-	        	<%= link_to "TODO: Admin Dashboard", root_path, class: "dropdown-item" %>
-	        	
+            <% if current_user.type == "AdminUser" %>
+	        	  <%= link_to "Admin Dashboard", admin_root_path, class: "dropdown-item" %>
+	        	<% end %>
 	          	<%= link_to "Logout", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
 	        </div>
 	      </li>
  		</ul>
  	</div>
 </nav>
+<% end %>
