@@ -15,12 +15,10 @@ describe 'navigate' do
  		end
 
 	    it 'can be reached successfully' do
-	      visit posts_path
 	      expect(page.status_code).to eq(200)
 	    end
 
 	    it 'has title of post' do
-	    	visit posts_path
 	    	expect(page).to have_content(/Posts/)
 	    end
 
@@ -29,6 +27,13 @@ describe 'navigate' do
 	    	post2 = FactoryBot.build_stubbed(:second_post)
 	    	visit posts_path
 	    	expect(page).to have_content(/Rationale|content/)
+	    end
+
+	    it 'has a scope so that only post craetor can see their post' do
+	    	post1 = FactoryBot.create(:post, user_id: @user.id)
+	    	post2 = FactoryBot.create(:second_post, user_id: @user.id)
+	    	# other_user = FactoryBot.create(:post_from_other_user, user_id: @other_user.id)
+	    		
 	    end
 
 	  end
@@ -44,7 +49,7 @@ describe 'navigate' do
 
 	  describe 'delete' do
 	  	it 'can be deleted' do
-	  		@post = FactoryBot.create(:post)
+	  		@post = FactoryBot.create(:post, user_id: @user.id)
 	  		visit posts_path
 	  		click_link("delete_post_#{@post.id}_from_index")
 	  		expect(page.status_code).to eq(200)
