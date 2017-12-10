@@ -7,9 +7,12 @@ RSpec.describe User, type: :model do
   end
 
   describe "creation" do
-  	it "can be created" do  		
-  		expect(@user).to be_valid
-  	end
+    it "can be created" do      
+      expect(@user).to be_valid
+    end
+  end
+
+  describe "validations" do
 
   	it "can not be created without first_name" do
   		@user.first_name = nil
@@ -23,6 +26,16 @@ RSpec.describe User, type: :model do
 
     it "can not be created without phone" do
       @user.phone = nil
+      expect(@user).to_not be_valid
+    end
+
+    it "requires phone attr to only contain integers" do
+      @user.phone =  "mygreatstr"
+      expect(@user).to_not be_valid
+    end
+
+    it "requires the phone attr to only have 10 chars" do
+      @user.phone =  "123456789011"
       expect(@user).to_not be_valid
     end
   end
