@@ -7,7 +7,7 @@ module PostsHelper
 
 		def badge_span_generator status
 			case status
-			when 'active'
+			when 'submitted'
 				content_tag(:span, status.titleize, class: 'badge badge-primary')
 			when 'approved'
 				content_tag(:span, status.titleize, class: 'badge badge-success')
