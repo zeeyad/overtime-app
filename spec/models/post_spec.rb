@@ -5,7 +5,7 @@ RSpec.describe Post, type: :model do
   describe "creation" do
 
   	before do
-      @user = User.create(email: "test@test.com", password: "asdfasdf", password_confirmation: "asdfasdf", first_name: "john", last_name: "smith")
+      @user = User.create(email: "test@test.com", password: "asdfasdf", password_confirmation: "asdfasdf", first_name: "john", last_name: "smith", phone: "555555555")
       login_as(@user, :scope => :user)
   		@post = FactoryBot.create(:post)
   	end
