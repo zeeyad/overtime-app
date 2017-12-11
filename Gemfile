@@ -23,6 +23,7 @@ gem 'pundit', '~> 1.1'
 gem "font-awesome-rails"
 gem 'twilio-ruby', '~> 5.5' 
 gem 'dotenv-rails', groups: [:development, :test]
+gem 'kaminari', '~> 1.1', '>= 1.1.1'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw] 
